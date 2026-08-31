@@ -2,7 +2,7 @@
 
 > A clean, dark and translucent Waybar setup for **Arch Linux + Hyprland**, designed to look good without requiring you to know how to program.
 
-![Waybar Preview](https://placehold.co/1200x300/png?text=Waybar+Preview)
+![Waybar Preview](https://github.com/krouu-x/waybar/blob/main/src/waybar.png)
 
 ## ✨ What is this?
 
