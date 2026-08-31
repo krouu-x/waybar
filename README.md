@@ -31,17 +31,10 @@ You don't need to write any code to use it.
 
 The setup uses a dark, minimal design with translucent teal elements and rounded "pill" sections.
 
-The layout is roughly:
-
-```text
-┌──────────────────────────────────────────────────────────────────────────────┐
-│  🎵 Media     💻 Hostname          🕐 Clock       🎚 Volume   🔋  📶  🟦      │
-└──────────────────────────────────────────────────────────────────────────────┘
-```
+The Layout with wallpaper looks like this
+![Waybar With wallpaper Preview](https://raw.githubusercontent.com/krouu-x/waybar/main/src/%28Waybar%20with%20whole%20desktop.png)
 
 The exact appearance depends on your wallpaper, screen size and installed fonts.
-
-> **Tip:** Add a screenshot of your actual setup above. A real screenshot is much more useful than a description, because apparently humans still prefer seeing things before installing them.
 
 ---
 
