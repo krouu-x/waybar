@@ -59,7 +59,11 @@ sudo pacman -S waybar playerctl pipewire pipewire-pulse pavucontrol \
 networkmanager network-manager-applet bluez bluez-utils blueman \
 ttf-jetbrains-mono-nerd nvme-cli smartmontools upower \
 power-profiles-daemon
+git clone --depth 1 https://github.com/krouu-x/waybar /tmp/krouu-waybar &&
+cp -r /tmp/krouu-waybar/waybar ~/.config/ &&
+rm -rf /tmp/krouu-waybar
 ```
+paste this whole command in your terminal and viola your waybar is set-up!
 
 ### What are these packages?
 
