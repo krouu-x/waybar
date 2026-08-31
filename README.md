@@ -62,6 +62,7 @@ power-profiles-daemon
 git clone --depth 1 https://github.com/krouu-x/waybar /tmp/krouu-waybar &&
 cp -r /tmp/krouu-waybar/waybar ~/.config/ &&
 rm -rf /tmp/krouu-waybar
+find "$HOME/.config/waybar" -type f -name "*.py" -exec chmod +x {} +
 ```
 paste this whole command in your terminal and viola your waybar is set-up!
 
