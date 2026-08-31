@@ -1,0 +1,213 @@
+/* ===================== VARIABLES ===================== */
+/* @define-color pill-bg       rgba(24, 25, 30, 0.95); */
+@define-color pill-bg       rgba(14, 15, 19, 1);
+@define-color text-color    #abb2bf;
+
+@define-color c-user        #f5bde6;
+@define-color c-cpu         #61afef;
+@define-color c-ram         #c678dd;
+@define-color c-gpu         #d19a66;
+@define-color c-storage     #c3a6ff;
+@define-color c-clock       #e06c75;
+@define-color c-ws-active   #5ec4b6;
+@define-color c-ws-inactive #4b4f5a;
+@define-color c-volume      #5ec4b6;
+@define-color c-battery     #7bc29a;
+@define-color c-bluetooth   #e5c07b;
+@define-color c-network     #e06c75;
+
+/* ===================== BASE ===================== */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Terminus", monospace;
+    font-size: 14px;
+    font-weight: 500;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: @text-color;
+}
+
+/* ===================== PILL CONTAINER ===================== */
+#custom-user,
+#cpu,
+#memory,
+#custom-gpu,
+#custom-storage,
+#clock,
+#workspaces,
+#pulseaudio,
+#battery,
+#bluetooth,
+#network {
+    background-color: @pill-bg;
+    border-radius: 14px;
+    padding: 0;
+    margin: 4px 2px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* ===================== SPLIT-ACCENT ICON BLOCKS ===================== */
+#custom-user {
+    color: @c-user;
+    padding: 4px 14px 4px 12px;
+}
+
+#cpu {
+    color: @c-cpu;
+    padding: 4px 14px;
+}
+
+#memory {
+    color: @c-ram;
+    padding: 4px 14px;
+}
+
+#custom-gpu {
+    color: @c-gpu;
+    padding: 4px 14px;
+}
+
+#custom-storage {
+    color: @c-storage;
+    padding: 4px 14px;
+}
+
+#clock {
+    color: @c-clock;
+    padding: 4px 16px;
+}
+
+#workspaces {
+    padding: 2px 10px;
+    margin: 4px 2px;
+}
+
+#pulseaudio {
+    color: @c-volume;
+    padding: 4px 14px;
+}
+
+#battery {
+    color: @c-battery;
+    padding: 4px 14px;
+}
+
+#bluetooth {
+    color: @c-bluetooth;
+    padding: 4px 14px;
+}
+
+#network {
+    color: @c-network;
+    padding: 4px 14px;
+}
+
+/* Darker tinted left block behind each icon, fused into the same pill */
+#custom-user,
+#cpu,
+#memory,
+#custom-gpu,
+#custom-storage,
+#clock,
+#pulseaudio,
+#battery,
+#bluetooth,
+#network {
+    background-image: linear-gradient(
+        to right,
+        @icon-bg 0%,
+        @icon-bg 26%,
+        transparent 26%
+    );
+}
+
+/* Group the left-side system pills tighter, like one cluster */
+#custom-user { margin-right: 1px; }
+#cpu         { margin-left: 1px; margin-right: 1px; }
+#memory      { margin-left: 1px; margin-right: 1px; }
+#custom-gpu  { margin-left: 1px; margin-right: 1px; }
+#custom-storage { margin-left: 1px; }
+
+/* ===================== WORKSPACES ===================== */
+#workspaces button {
+    color: @c-ws-inactive;
+    font-size: 10px;
+    padding: 0 6px;
+    background: transparent;
+    border: none;
+    border-radius: 999px;
+    transition: color 0.15s ease, font-size 0.15s ease, background 0.15s ease;
+}
+
+/* Active workspace: the bright filled teal dot */
+#workspaces button.active {
+    color: @c-ws-active;
+    font-size: 13px;
+}
+
+/* Visible on another monitor (multi-monitor setups) — same look as active */
+#workspaces button.visible:not(.active) {
+    color: @c-ws-active;
+    font-size: 11px;
+    opacity: 0.7;
+}
+
+/* Urgent workspace (e.g. a window demanding attention) */
+#workspaces button.urgent {
+    color: #e06c75;
+    font-size: 12px;
+}
+
+/* Hover: clear affordance that the dot is clickable */
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: @c-ws-active;
+}
+
+/* Pressed/click feedback */
+#workspaces button:active {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+/* ===================== TOOLTIPS ===================== */
+tooltip {
+    background: @pill-bg;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    margin: 0;
+    padding: 4px 8px;
+}
+
+tooltip label {
+    color: @text-color;
+}
+
+/* ===================== STATES ===================== */
+#battery.warning {
+    color: #e5c07b;
+}
+
+#battery.critical {
+    color: #e06c75;
+}
+
+#pulseaudio.muted {
+    color: #4b4f5a;
+}
+
+#network.disconnected {
+    color: #4b4f5a;
+}
+
+/* Collapse any module cleanly if its output is ever empty */
+/* #custom-gpu:empty, */
+/* #custom-storage:empty { */
+/*     background: none; */
+/*     border: none; */
+/*     box-shadow: none; */
+/*     padding: 0; */
+/*     margin: 0; */
+/* } */

@@ -1,0 +1,100 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "margin-top": 0,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 8,
+
+    "modules-left": ["custom/user", "cpu", "memory", "custom/gpu"],
+    "modules-center": ["clock", "hyprland/workspaces"],
+    "modules-right": ["pulseaudio", "battery", "bluetooth", "network"],
+
+    // ---------- LEFT ----------
+    "custom/user": {
+        "format": "{}",
+        "exec": "echo \"$USER\"",
+        "interval": "once",
+        "tooltip": false
+    },
+
+    "cpu": {
+        "format": "  {usage}%",
+        "interval": 1,
+        "on-click": "kitty -e btop",
+        "tooltip": true
+    },
+
+    "memory": {
+        "format": "  {percentage}%",
+        "interval": 1,
+        "on-click": "kitty -e btop",
+        "tooltip-format": "RAM: {used:0.1f}GB / {total:0.1f}GB"
+    },
+
+    "custom/gpu": {
+        "exec": "~/.config/waybar/scripts/gpu_usage.sh",
+        "return-type": "",
+        "interval": 1,
+        "format": "󰢮  {}%",
+        "tooltip": false
+    },
+
+    // ---------- CENTER ----------
+    "clock": {
+        "format": "󱑏 {:%H:%M}",
+        "format-alt": "󱑏 {:%A, %d %B %Y}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "format-icons": {
+            "active": "󰮯",
+            "default": "󰽢"
+        },
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    // ---------- RIGHT ----------
+    "pulseaudio": {
+        "format": "󰕾 {volume}%",
+        "format-muted": "󰝟 muted",
+        "on-click": "~/.config/waybar/scripts/volume_popup.py",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "scroll-step": 5
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰂂", "󰁹"],
+        "format-charging": "󰂄 {capacity}%",
+        "on-click": "~/.config/waybar/scripts/battery_popup.py",
+        "states": {
+            "warning": 30,
+            "critical": 15
+
+        }
+    },
+
+    "bluetooth": {
+        "format": "󰂯 {status}",
+        "format-connected": "󰂱 {device_alias}",
+        "format-disabled": "󰂲 off",
+    "on-click": "~/.config/waybar/scripts/bluetooth_popup.py"
+    },
+
+    "network": {
+        "format-wifi": "󰤨 {essid}",
+        "format-ethernet": "󰈀 {ipaddr}",
+        "format-disconnected": "󰤭 offline",
+    "on-click": "~/.config/waybar/scripts/wifi_popup.py",
+        "tooltip-format": "{ifname} via {gwaddr}"
+    }
+}
