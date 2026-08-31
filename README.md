@@ -166,13 +166,17 @@ Ctrl + C
 If you use Hyprland, open:
 
 ```text
-~/.config/hypr/hyprland.conf
+~/.config/hypr/hyprland.lua
 ```
 
-Add:
+Add in this function which will look like this:
 
 ```ini
-exec-once = waybar
+hl.on("hyprland.start", function ()
+    ....
+   hl.exec_cmd("waybar")
+end)
+
 ```
 
 Then reload Hyprland:
