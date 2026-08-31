@@ -32,7 +32,7 @@ You don't need to write any code to use it.
 The setup uses a dark, minimal design with translucent teal elements and rounded "pill" sections.
 
 The Layout with wallpaper looks like this
-![Waybar With wallpaper Preview](https://raw.githubusercontent.com/krouu-x/waybar/main/src/%28Waybar%20with%20whole%20desktop.png)
+![Waybar With wallpaper Preview](https://raw.githubusercontent.com/krouu-x/waybar/main/src/Waybar%20with%20whole%20desktop.png)
 
 The exact appearance depends on your wallpaper, screen size and installed fonts.
 
