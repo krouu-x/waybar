@@ -1,2 +1,2 @@
-Install required packages \n
+Install required packages <br>
 ```sudo pacman -S nvme-cli smartmontools bluez-utils networkmanager upower power-profiles-daemon```
